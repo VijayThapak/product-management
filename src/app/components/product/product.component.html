@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <nav class="navbar bg-body-tertiary">
+                <div class="container-fluid">
+                    <a class="navbar-brand">Product</a>
+                    <form class="d-flex" role="search">
+                        <input [formControl]="searchControl" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button (click)="searchProduct()" class="btn btn-outline-success" type="button">Search</button>
+                    </form>
+                    <button type="button" class="btn btn-default btn-md">
+                        <b> <i class="bi bi-cart"></i> </b>
+                    </button>
+                </div>
+            </nav>
+            <div class="row">
+                <div class="col-4" *ngFor="let product of productsData;">
+                    <div class="card" style="width: 18rem;">
+                        <img src="https://source.unsplash.com/random/200x200?sig=1" class="card-img-top" alt="Image">
+                        <div class="card-body">
+                            <h5 class="card-title">{{product.name}}</h5>
+                            <p class="card-text">Price: <s>{{product.price}}</s> {{product.priceWithDiscount}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
