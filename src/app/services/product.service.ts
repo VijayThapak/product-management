@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 
@@ -30,7 +30,8 @@ export class ProductService {
     // return this.httpClient.get("http://localhost:4200/test");
   }
 
-  searchProducts(): Observable<any> {
-    return this.httpClient.get("http://localhost:4200/test");
+  searchProducts(searchValue: any, selectedCategory: any): Observable<any> {
+    let params = new HttpParams().set("searchValue", searchValue).set("selectedCategory", selectedCategory);
+    return this.httpClient.get(`http://localhost:4200/test?`, { params });
   }
 }

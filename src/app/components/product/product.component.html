@@ -6,6 +6,9 @@
                     <a class="navbar-brand">Product</a>
                     <form class="d-flex" role="search">
                         <input [formControl]="searchControl" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <select [formControl]="selectControl" class="custom-select me-2 mw-2" style="min-width: 150px;">
+                            <option *ngFor="let c of category" [value]="c.value">{{c.name}}</option>
+                          </select>
                         <button (click)="searchProduct()" class="btn btn-outline-success" type="button">Search</button>
                     </form>
                     <button type="button" class="btn btn-default btn-md">
@@ -14,7 +17,7 @@
                 </div>
             </nav>
             <div class="row">
-                <div class="col-4" *ngFor="let product of productsData;">
+                <div class="col-12 col-md-4" *ngFor="let product of productsData;">
                     <div class="card" style="width: 18rem;">
                         <img src="https://source.unsplash.com/random/200x200?sig=1" class="card-img-top" alt="Image">
                         <div class="card-body">

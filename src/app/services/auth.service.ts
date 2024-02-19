@@ -7,8 +7,8 @@ export class AuthService {
 
   constructor() { }
 
-  getAuthorizationToken() {
+  getAuthorizationToken(): string {
     // logic to get token from local
-    return "Bearer<Token>";
+    return localStorage.getItem('token') || "";
   }
 }

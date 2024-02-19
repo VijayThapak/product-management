@@ -14,6 +14,8 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
 export class ProductComponent {
     productsData: any[] = [];
     searchControl = new FormControl('');
+    selectControl = new FormControl('1');
+    category = [{ name: "One", value: "1" }, { name: "Two", value: "2" }]
 
     constructor(private productService: ProductService) { }
 
@@ -25,7 +27,8 @@ export class ProductComponent {
     }
 
     searchProduct() {
-        this.productService.searchProducts().subscribe(({ products }) => {
+        console.log(this.searchControl.value, this.selectControl.value);
+        this.productService.searchProducts(this.searchControl.value, this.selectControl.value).subscribe(({ products }) => {
             this.productsData = products;
         })
     }
